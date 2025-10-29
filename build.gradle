@@ -1,0 +1,22 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass = 'projetoarvoreb.Main'
+}
+
+java {
+    // use APENAS um dos blocos abaixo; este com toolchain é o mais seguro:
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    // Se preferir sem toolchain, comente o bloco acima e use:
+    // sourceCompatibility = JavaVersion.VERSION_17
+    // targetCompatibility = JavaVersion.VERSION_17
+}
+
+// (opcional) trave o bytecode
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
